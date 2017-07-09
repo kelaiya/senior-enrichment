@@ -28,7 +28,7 @@ export default class WinterJokes extends Component {
     const {joke, answered} = this.state    
     return (
       <div>
-        <h1 onClick={answered ? this.nextJoke : this.answer}>{joke.q}</h1>
+        <h1 this.answer}>{joke.q}</h1>
         {answered && <h2>{joke.a}</h2>}
       </div>
     )

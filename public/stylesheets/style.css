@@ -1,0 +1,78 @@
+.display {
+	display: inline-block;
+	background-color: lightblue;
+	margin-right: 100px;
+	margin-bottom: 100px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.position {
+	position: relative;
+  left: 1000px;
+	display: inline;
+	width: 50px;  
+	height: 25px;
+	border-radius: 10px;
+	border: 1px solid #000;
+}
+
+.size-button1 {
+	margin-left: 100px;
+  margin-top: 100px;
+ 	width: 200px;  
+	height: 200px;
+	border-radius: 100px;
+	text-align: center;
+	border: 1px solid #000;
+	font-size: 25px;
+	background-color: lightpink;
+}
+.size-button2 {
+	margin-left: 100px;
+  margin-top: 100px;
+ 	width: 200px;  
+	height: 200px;
+	border-radius: 100px;
+	text-align: center;
+	border: 1px solid #000;
+	font-size: 25px;
+	background-color: grey;
+}
+.size-button3 {
+	margin-left: 100px;
+  margin-top: 100px;
+ 	width: 200px;  
+	height: 200px;
+	border-radius: 100px;
+	text-align: center;
+	border: 1px solid #000;
+	font-size: 25px;
+	background-color: lightgreen;
+}
+.size-button4 {
+	margin-left: 100px;
+  margin-top: 100px;
+ 	width: 200px;  
+	height: 200px;
+	border-radius: 100px;
+	text-align: center;
+	border: 1px solid #000;
+	font-size: 25px;
+	background-color: purple;
+}
+
+#button-size {
+	width: 25em;  
+	height: 25em;
+}
+
+.col-sm-2 {
+    width: 16.66667%;
+    padding: 0 10px; 
+}
+
+ .col-sm-6 {
+    width: 50%;
+    padding: 0 10px; 
+}
