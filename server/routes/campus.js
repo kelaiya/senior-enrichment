@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 var models = require('../../db/models');
 var Campus = require('../../db/models/campuses');
+const mime = require('mime');
+module.exports = router;
 
 router.get('/', function (req, res, next) {
+  console.log("hi all");
   Campus.findAll({ where: req.query })
   .then(campus => res.json(campus))
   .catch(next);
@@ -16,7 +19,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.param('campusId', function (req, res, next, id) {
-  Album.findById(id)
+  Campus.findById(id)
   .then(function (campus) {
     if (!campus) {
       const err = Error('Campus not found');
@@ -33,6 +36,7 @@ router.param('campusId', function (req, res, next, id) {
 router.get('/:campusId', function (req, res) {
   res.json(req.campus);
 });
+
 
 router.put('/:campusId', function (req, res, next) {
   req.campus.update(req.body)

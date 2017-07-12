@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const mime = require('mime');
 var models = require('../../db/models');
 var Student = require('../../db/models/students');
+module.exports = router;
 
 router.get('/', function (req, res, next) {
   Student.findAll({ where: req.query })
@@ -16,7 +18,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.param('studentId', function (req, res, next, id) {
-  Album.findById(id)
+  Student.findById(id)
   .then(function (student) {
     if (!student) {
       const err = Error('Student not found');
