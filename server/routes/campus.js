@@ -49,3 +49,17 @@ router.delete('/:campusId', function (req, res, next) {
   .then(() => res.status(204).end())
   .catch(next);
 });
+
+router.get('/:campusId/student', function (req, res, next) {
+  Student.findAll({
+    where: {
+      campusId: req.params.campusId
+    }
+  })
+  .then(student => res.send(student))
+  .catch(next);
+  
+});
+
+
+

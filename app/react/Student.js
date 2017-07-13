@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-export default class Student extends Component {
-  constructor () {
-    super();
-    this.state = {
-      student: []
-    };
-  }
-  componentDidMount () {
-      axios.get('/api/student')
-      .then(res => res.data)
-      .then(student => this.setState({ student }));
-    }
+const Student = (props) => {
 
-  render () {
-    const student = this.state.student;
-      return (
+  const student = props.student;
+  console.log("tgis is a props.", props)
+    return (
       <div>
         <h3>Students</h3>
         <div className="list-group">
           {
+
             student.map(student => {
               return (
                 <div className="list-group-item" key={student.id}>
@@ -34,4 +23,5 @@ export default class Student extends Component {
       </div>
     );
   }
-}
+
+  export default Student;

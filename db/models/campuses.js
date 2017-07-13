@@ -17,4 +17,15 @@ module.exports = db.define('campuses', {
       isEmail: true
     }
   }
+},{
+  instanceMethods: {
+    getStudent: function () {
+      return db.model('student').findAll({
+          include: [{
+            model: db.model('campus'),
+            where: { id: this.id } // makes this entire query an inner join
+          }]
+      });
+    }
+  }
 });

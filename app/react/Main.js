@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import Student from './Student';
 import SingleStudent from './SingleStudent';
 import SingleCampus from './SingleCampus';
+import StatefulStudent from './StatefulStudent'
+
 export default class Main extends Component {
   render(){
     console.log("HHHHHIIII");
@@ -17,7 +19,7 @@ export default class Main extends Component {
               <Switch>
           	  <Route exact path="/campus" component={Campus} />
               <Route path="/campus/:campusId" component={SingleCampus} />
-              <Route exact path="/student" component={Student} />
+              <Route exact path="/student" component={StatefulStudent} />
               <Route path="/student/:studentId" component={SingleStudent} />
         		</Switch>
             </div>
