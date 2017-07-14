@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export default class AddCampus extends Component {
 
   constructor(props) {
@@ -8,8 +9,10 @@ export default class AddCampus extends Component {
       inputName: ''
     }
 
+    console.log(this.props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+
   }
 
   handleChange(evt) {
@@ -19,6 +22,7 @@ export default class AddCampus extends Component {
   handleSubmit(evt) {
 
     evt.preventDefault();
+    console.log('props', this.state.inputName);
     const newCampus = this.props.newCampus;
     newCampus(this.state.inputName);
     this.setState({

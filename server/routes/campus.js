@@ -46,10 +46,18 @@ router.put('/:campusId', function (req, res, next) {
 });
 
 router.delete('/:campusId', function (req, res, next) {
-  req.campus.destroy()
-  .then(() => res.status(204).end())
+  Campus.destroy({
+    where:{
+      campusId: req.params.campusId
+    }
+  })
+  .then(function(camp){
+    console.log("h",camp);
+  })
   .catch(next);
-});
+})
+
+      
 
 router.get('/:campusId/student', function (req, res, next) {
   student.findAll({

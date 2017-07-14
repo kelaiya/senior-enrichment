@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Campus from './Campus';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import Student from './Student';
 import SingleStudent from './SingleStudent';
 import SingleCampus from './SingleCampus';
-import StatefulStudent from './StatefulStudent'
+import StatefulStudent from './StatefulStudent';
 import AddCampus from './AddCampus'
 import AddStudent from './AddStudent'
 import axios from 'axios';
@@ -27,9 +27,9 @@ export default class Main extends Component {
       .then(res => res.data)
       .then(campus => this.setState({ campus }));
 
-      var sec = axios.get('/api/student')
+    var sec = axios.get('/api/student')
       .then(res => res.data)
-      .then(student => this.setState({ student }));
+      .then(student => this.setState({ student })); 
 
     Promise.all([first, sec])
     .then(function(){
@@ -50,7 +50,6 @@ export default class Main extends Component {
   }
 
   newStudent(name) {
-
     axios.post('/api/student', { name })
       .then(res => res.data)
       .then(stu =>
@@ -60,8 +59,10 @@ export default class Main extends Component {
       })
     })
   }
+
+  
+
   render(){
-    console.log("New Campus and Student");
     const campus = this.state.campus;
     const newCampus = this.newCampus;
     const newStudent = this.newStudent;
@@ -70,16 +71,19 @@ export default class Main extends Component {
   	       <Router>
   	       	<div id="main" className="container-fluid">
           		<div className="col-xs-2">
-            		<Navbar />
+            		<Sidebar />
           		</div>
-              <Switch>
-          	  <Route exact path="/campus" component={Campus} />
-              <Route path="/campus/:campusId" component={SingleCampus} />
-              <Route exact path="/student" component={StatefulStudent} />
-              <Route path="/student/:studentId" component={SingleStudent} />
-        		  <Route path="/new-campus" render={() => <AddCampus newCampus={newCampus} />} />
-              <Route path="/new-student" render={() => <AddStudent newStudent={newStudent} />} />
-            </Switch>
+              <div className="col-xs-10">
+                <Switch>
+              	  
+                  <Route exact path="/campus" render={() => <Campus newCampus={newCampus} />} />
+                  <Route path="/campus/:campusId" component={SingleCampus} />
+                  <Route exact path="/student" component={StatefulStudent} />
+                  <Route path="/student/:studentId" component={SingleStudent} />
+            		  <Route path="/new-campus" render={() => <AddCampus newCampus={newCampus} />} />
+                  <Route path="/new-student" render={() => <AddStudent newStudent={newStudent} />} />
+                </Switch>
+              </div>
             </div>
 					</Router>
         );

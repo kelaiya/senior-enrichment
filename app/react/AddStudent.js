@@ -13,6 +13,7 @@ export default class AddStudent extends Component {
   }
 
   handleChange(evt) {
+    console.log("very imp", evt.target.value)
     this.setState( { inputName: evt.target.value } );
   }
 

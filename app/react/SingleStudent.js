@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Student from './Student';
 import Campus from './Campus'
-
+import AddStudent from './AddStudent'
 
 export default class SingleStudent extends Component {
 
@@ -49,20 +49,16 @@ export default class SingleStudent extends Component {
     const campus = this.state.campus;
 
     var ans = campus.map(camp => {
-              if (camp.id === singleStudent.campusId){
-                return camp.name;
-                 
-              } 
-            })
+      if (camp.id === singleStudent.campusId){
+        return camp.name;
+      } 
+    })
 
-
-    console.log("god", singleStudent)
-    console.log("god god god", campus )
     return (
       <div className="singleStudent col-xs-8">
-          <h1>Name : { singleStudent.name }</h1>
-          <h1>Email : { singleStudent.email }</h1>
-          <h1>          Campus : {ans}</h1>
+          <h2>Name : { singleStudent.name }</h2>
+          <h2>Email : { singleStudent.email }</h2>
+          <h2>          Campus : {ans}</h2>
 
       </div>
     );

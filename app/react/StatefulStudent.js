@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Student from './Student';
+import AddStudent from './AddStudent'
 
 export default class StatefulStudent extends Component {
   constructor () {
@@ -17,9 +18,10 @@ export default class StatefulStudent extends Component {
 
   render(){
   	const student = this.state.student;
-    console.log("this is a headache", student )
-  	return (
-  		        <Student student={student} />
+  	return (<div>
+              <Student student={student} />
+              <AddStudent />
+             </div> 
           );
 		    }
 	   }
