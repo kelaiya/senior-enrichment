@@ -55,12 +55,12 @@ export default class SingleCampus extends Component {
     console.log("this is a student", student)
     return (
         <div className="singleCampus">
-          <h3>{ singleCampus.name }</h3>
-          <h3>{ singleCampus.email }</h3>
+          <h3>Campus name : { singleCampus.name }</h3>
+          <h3>Campus email : { singleCampus.email }</h3>
           <div>
             <img src={ singleCampus.image } />
           </div>
-          <li><Link to={`/campus/${singleCampus.id}/student`}>Students</Link></li>
+          <li><Link to={`/campus/${singleCampus.id}/student`}>Student's list</Link></li>
 
           <Route path={`/campus/${singleCampus.id}/student`} render={() => (
             <Student student={student} />
