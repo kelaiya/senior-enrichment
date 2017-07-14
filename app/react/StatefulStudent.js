@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Student from './Student';
 
-
 export default class StatefulStudent extends Component {
   constructor () {
     super();
@@ -20,7 +19,7 @@ export default class StatefulStudent extends Component {
   	const student = this.state.student;
     console.log("this is a headache", student )
   	return (
-  		<Student student={student} />
-  		);
-		}
-	}
+  		        <Student student={student} />
+          );
+		    }
+	   }

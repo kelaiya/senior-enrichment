@@ -46,21 +46,6 @@ export default class SingleCampus extends Component {
   }
 
 
-
-  // componentDidMount () {
-  //   const campusId = this.props.match.params.campusId;
-  //   const mainPath = `/api/campus/${campusId}`;
-  //   const paths = [mainPath, `${mainPath}/student`];
-  //   Bluebird
-  //     .map(paths, path => axios.get(path))
-  //     .map(res => res.data)
-  //     .spread((singleCampus, student) => {
-  //       console.log("single campus",singleCampus, "stuent", student)
-  //       singleCampus.student = student;
-  //       this.setState({ singleCampus });
-  //     });
-  // }
-
   render () {
 
     const singleCampus = this.state.singleCampus;

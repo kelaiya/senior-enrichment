@@ -47,3 +47,14 @@ router.delete('/:studentId', function (req, res, next) {
   .then(() => res.status(204).end())
   .catch(next);
 });
+
+// router.get('/:campusId', function (req, res, next) {
+//   Campus.findById({
+//     where: {
+//       campusId: req.params.campusId
+//     }
+//   })
+//   .then( campus => res.send(campus))
+//   .catch(next);
+  
+// });
