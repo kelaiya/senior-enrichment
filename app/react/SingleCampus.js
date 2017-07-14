@@ -11,19 +11,38 @@ export default class SingleCampus extends Component {
   constructor () {
     super();
     this.state = {
-      singleCampus: {}
+      singleCampus: {},
+      student: []
     };
   }
   componentDidMount () {
   	console.log("here",this.props.match.params);
     const campusId = this.props.match.params.campusId;
     console.log("now", campusId);
-    axios.get(`/api/campus/${campusId}`)
+
+
+    const first = axios.get(`/api/campus/${campusId}`)
       .then(res => res.data)
       .then(singleCampus => this.setState({
         singleCampus
       })
       )
+
+      const sec = axios.get(`/api/campus/${campusId}/student`)
+      .then(res => res.data)
+      .then(student => {
+        console.log("hhhhhhhh");
+        this.setState({
+        student
+      })
+        console.log("again hhhh", student)
+      }
+      )
+
+      Promise.all([first, sec])
+      .then(function(){
+        console.log('resolved');
+      })
   }
 
 
@@ -46,9 +65,9 @@ export default class SingleCampus extends Component {
 
     const singleCampus = this.state.singleCampus;
     console.log("I am first", singleCampus);
-    const student = singleCampus.student || [];
+    
+    const student = this.state.student
     console.log("this is a student", student)
-
     return (
         <div className="singleCampus">
           <h3>{ singleCampus.name }</h3>
@@ -56,6 +75,11 @@ export default class SingleCampus extends Component {
           <div>
             <img src={ singleCampus.image } />
           </div>
+          <li><Link to={`/campus/${singleCampus.id}/student`}>Students</Link></li>
+
+          <Route path={`/campus/${singleCampus.id}/student`} render={() => (
+            <Student student={student} />
+          )} />
         </div>
     );
   }

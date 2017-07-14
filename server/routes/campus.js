@@ -3,6 +3,7 @@ const router = express.Router();
 var models = require('../../db/models');
 var Campus = require('../../db/models/campuses');
 const mime = require('mime');
+const student = require('../../db/models/students');
 module.exports = router;
 
 router.get('/', function (req, res, next) {
@@ -51,7 +52,7 @@ router.delete('/:campusId', function (req, res, next) {
 });
 
 router.get('/:campusId/student', function (req, res, next) {
-  Student.findAll({
+  student.findAll({
     where: {
       campusId: req.params.campusId
     }
