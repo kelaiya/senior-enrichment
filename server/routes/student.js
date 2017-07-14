@@ -3,6 +3,7 @@ const router = express.Router();
 const mime = require('mime');
 var models = require('../../db/models');
 var Student = require('../../db/models/students');
+const campus = require('../../db/models/campuses');
 module.exports = router;
 
 router.get('/', function (req, res, next) {
