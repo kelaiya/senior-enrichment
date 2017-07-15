@@ -78,7 +78,7 @@ export default class Main extends Component {
               	  
                   <Route exact path="/campus" render={() => <Campus newCampus={newCampus} />} />
                   <Route path="/campus/:campusId" component={SingleCampus} />
-                  <Route exact path="/student" component={StatefulStudent} />
+                  <Route exact path="/student" render={() => <StatefulStudent newStudent={newStudent} />} />
                   <Route path="/student/:studentId" component={SingleStudent} />
             		  <Route path="/new-campus" render={() => <AddCampus newCampus={newCampus} />} />
                   <Route path="/new-student" render={() => <AddStudent newStudent={newStudent} />} />

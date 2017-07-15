@@ -20,7 +20,7 @@ export default class StatefulStudent extends Component {
   	const student = this.state.student;
   	return (<div>
               <Student student={student} />
-              <AddStudent />
+              <AddStudent newStudent={this.props.newStudent} />
              </div> 
           );
 		    }
